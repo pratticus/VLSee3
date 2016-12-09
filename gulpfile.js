@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 
 gulp.task('hello', function() {
-  console.log('Snow day!');
+  console.log('branch test!');
 
 });
 
