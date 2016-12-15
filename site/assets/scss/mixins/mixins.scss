@@ -1,3 +1,6 @@
+@import '../mcgriddle/settings/grid';
+@import '../mcgriddle/mcgriddle';
+
 $breakpoints: (
   'phone': 320px,
   'tablet': 768px,
@@ -74,7 +77,7 @@ $grayBlue: #434a54;
 	-ms-transition: $args;
 	-o-transition: $args;
 	transition: $args;
-} 
+}
 
 @mixin column-count($count) {
 	-webkit-column-count: $count;
@@ -82,4 +85,4 @@ $grayBlue: #434a54;
 	-ms-column-count: $count;
 	-o-column-count: $count;
 	column-count: $count;
-}  
+}

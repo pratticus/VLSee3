@@ -1,9 +1,10 @@
-body,h1,h2,h3,h4,header,html{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}header{display:block}body{line-height:1}
+body,div,h1,h3,h4,header,html{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline}header{display:block}body{line-height:1}
+
 /*!
  * McGriddle
  * @description
  * @author Jonathan Suh @jonsuh
  * @site https://jonsuh.com/mcgriddle
  * @link https://github.com/jonsuh/mcgriddle
- */h1{font-family:sans-serif}h2{color:#000}body{background:purple;width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}body:after{display:none}header{width:100%;margin-right:2.92969%;background:red}
+ */h1{font-family:sans-serif}body{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}body:after{display:none}header{width:100%;margin-right:2.92969%;background:#434a54;margin:0}#topBar{width:100%;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;margin-left:auto;margin-right:auto;max-width:64em;background-color:#ff9e16;color:#fff}#topBar:after{display:none}
 /*# sourceMappingURL=maps/styles.css.map */
