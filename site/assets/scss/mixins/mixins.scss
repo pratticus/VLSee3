@@ -1,0 +1,85 @@
+$breakpoints: (
+  'phone': 320px,
+  'tablet': 768px,
+  'desktop': 1024px
+) !default;
+
+$media-expressions: (
+  'screen': 'screen',
+  'print': 'print',
+  'handheld': 'handheld',
+  'landscape': '(orientation: landscape)',
+  'portrait': '(orientation: portrait)',
+  'retina2x': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)',
+  'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi)'
+) !default;
+
+$sans-serif:'Lato', Helvetica, 'Helvetica Neue', Calibri, sans-serif;
+$bodyType: -apple-system-body, 'Roboto', 'Segoe UI', sans-serif;
+
+$light: 300;
+$regular: 400;
+$bold: 700;
+$heavy: 900;
+
+$blue: #009bde;
+$orange: #ff9e16;
+$grayBlue: #434a54;
+
+@mixin left-offset-0 {margin-left: percentage(0/12);}
+@mixin left-offset-1 {margin-left: percentage(1/12);}
+@mixin left-offset-2 {margin-left: percentage(2/12);}
+@mixin left-offset-3 {margin-left: percentage(3/12);}
+@mixin left-offset-4 {margin-left: percentage(4/12);}
+@mixin left-offset-5 {margin-left: percentage(5/12);}
+@mixin left-offset-6 {margin-left: percentage(6/12);}
+@mixin left-offset-7 {margin-left: percentage(7/12);}
+@mixin left-offset-8 {margin-left: percentage(8/12);}
+@mixin left-offset-9 {margin-left: percentage(9/12);}
+@mixin left-offset-10 {margin-left: percentage(10/12);}
+@mixin left-offset-11 {margin-left: percentage(11/12);}
+
+@mixin right-offset-0 {margin-right: percentage(0/12);}
+@mixin right-offset-1 {margin-right: percentage(1/12);}
+@mixin right-offset-2 {margin-right: percentage(2/12);}
+@mixin right-offset-3 {margin-right: percentage(3/12);}
+@mixin right-offset-4 {margin-right: percentage(4/12);}
+@mixin right-offset-5 {margin-right: percentage(5/12);}
+@mixin right-offset-6 {margin-right: percentage(6/12);}
+@mixin right-offset-7 {margin-right: percentage(7/12);}
+@mixin right-offset-8 {margin-right: percentage(8/12);}
+@mixin right-offset-9 {margin-right: percentage(9/12);}
+@mixin right-offset-10 {margin-right: percentage(10/12);}
+@mixin right-offset-11 {margin-right: percentage(11/12);}
+
+@mixin left-offset-pad-0 {padding-left: percentage(0/12);}
+@mixin left-offset-pad-1 {padding-left: percentage(1/12);}
+@mixin left-offset-pad-2 {padding-left: percentage(2/12);}
+@mixin left-offset-pad-3 {padding-left: percentage(3/12);}
+@mixin left-offset-pad-4 {padding-left: percentage(4/12);}
+@mixin left-offset-pad-5 {padding-left: percentage(5/12);}
+@mixin left-offset-pad-6 {padding-left: percentage(6/12);}
+
+@mixin right-offset-pad-0 {padding-right: percentage(0/12);}
+@mixin right-offset-pad-1 {padding-right: percentage(1/12);}
+@mixin right-offset-pad-2 {padding-right: percentage(2/12);}
+@mixin right-offset-pad-3 {padding-right: percentage(3/12);}
+@mixin right-offset-pad-4 {padding-right: percentage(4/12);}
+@mixin right-offset-pad-5 {padding-right: percentage(5/12);}
+@mixin right-offset-pad-6 {padding-right: percentage(6/12);}
+
+@mixin transition($args...) {
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-ms-transition: $args;
+	-o-transition: $args;
+	transition: $args;
+} 
+
+@mixin column-count($count) {
+	-webkit-column-count: $count;
+	-moz-column-count: $count;
+	-ms-column-count: $count;
+	-o-column-count: $count;
+	column-count: $count;
+}  

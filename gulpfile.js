@@ -1,14 +1,23 @@
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+
 var browserSync = require('browser-sync').create();
 var useref = require('gulp-useref');
+
+/* CSS Libraries */
+var cssnano = require('gulp-cssnano');
+var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
+var uncss = require('gulp-uncss');
+
+/* JS Libraries*/
 var uglify = require('gulp-uglify');
 var gulpif = require('gulp-if');
-var cssnano = require('gulp-cssnano');
+
 var imagemin = require('gulp-imagemin');
 var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
+var sourcemaps = require('gulp-sourcemaps');
 
 //SASS processing
 gulp.task('sass', function(){
@@ -42,15 +51,41 @@ gulp.task('browserSync', function() {
 });
 
 //consolidating and minifying css and js files
-gulp.task('useref', function() {
+/*gulp.task('useref', function() {
   return gulp.src('site/*.html')
     .pipe(useref())
-    .pipe(gulpif('site/assets/js/*.js', uglify()))
-    .pipe(gulpif('site/assets/css/*.css', cssnano()))
+    .pipe(gulpif('*.js', uglify()))
+    .pipe(gulpif('*.css', cssnano()))
     .pipe(gulp.dest('dist'));
 
-});
+});*/
 
+gulp.task('sexyCSS', function(){
+  return gulp.src('site/assets/scss/styles.scss')
+		.pipe(sourcemaps.init())
+		.pipe(sass())
+		.pipe(autoprefixer())
+		.pipe(uncss({
+			html: ['site/*.html']//,
+			//ignore: [/alertPrompt/, /form-wrapper ol/, /browserCheckResults/, /error fail/, /defaultNoJs/]
+		}))
+		.pipe(cssnano())
+	    .pipe(sourcemaps.write('maps'))
+	    .pipe(gulp.dest('dist/assets/css')) // Outputs it in the css folder
+
+})
+gulp.task('fatJS', function(){
+  return gulp.src('site/*.html')
+      .pipe(useref())
+      .pipe(gulpif('*.js', uglify({mangle: false})))
+      .pipe(gulp.dest('dist'));
+})
+gulp.task('skinnyJS', function(){
+  return gulp.src('site/*.html')
+      .pipe(useref())
+      .pipe(gulpif('*.js', uglify({mangle: false})))
+      .pipe(gulp.dest('dist'));
+})
 //image Optimization
 gulp.task('images', function(){
   return gulp.src('site/assets/**/*.+(png|jpg|gif|svg)')
@@ -77,5 +112,6 @@ gulp.task('cache:clear', function(callback){
 })
 
 gulp.task('build', function(callback){
-  runSequence('clean:dist', ['sass', 'useref', 'images', 'fonts'], callback)
+  //runSequence('clean:dist', ['sass', 'useref', 'images', 'fonts'], callback)
+  runSequence('clean:dist', ['sexyCSS','fatJS','skinnyJS','images','fonts'], callback)
 })

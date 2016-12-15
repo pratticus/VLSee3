@@ -1,0 +1,38 @@
+// ==================================================
+// Columns
+// ==================================================
+@mixin columns($_columns: 1, $_position: default, $_max-width: false) {
+  @if $_max-width == max or $_max-width == true {
+    $_column-width: column-width($_columns, false);
+
+    @if $grid-flexbox == true {
+      width: 100%;
+    }
+    max-width: $_column-width;
+  }
+  @else { // $_max-width == default
+    width: column-width($_columns);
+  }
+
+  @if $_position == center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @else {
+    $_float: left;
+    $_margin: right;
+
+    @if $grid-rtl == true {
+      $_float: right;
+      $_margin: left;
+    }
+
+    @if $_position != last and $grid-collapse == false {
+      margin-#{$_margin}: gutter-width();
+    }
+
+    @if $grid-flexbox == false {
+      float: $_float;
+    }
+  }
+}

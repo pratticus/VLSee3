@@ -1,0 +1,25 @@
+// ==================================================
+// Container Display
+// ==================================================
+@mixin container-display($_flexbox: default) {
+  @if $_flexbox == default {
+    $_flexbox: $grid-flexbox;
+  }
+
+  @if $_flexbox == true {
+    width: 100%;
+    display: flex;
+    flex-wrap: $grid-flexbox-wrap;
+    justify-content: $grid-flexbox-justify;
+    &:after {
+      display: none;
+    }
+  }
+  @else {
+    &:after {
+      content: " ";
+      display: block;
+      clear: both;
+    }
+  }
+}

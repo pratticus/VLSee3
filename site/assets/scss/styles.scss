@@ -1,14 +1,32 @@
 // styles.scss
-.testing {
-  width: percentage(5/7);
-}
+@import 'mixins/reset.scss';
+@import 'mixins/mixins.scss';
+@import 'mcgriddle/settings/grid';
+@import 'mcgriddle/mcgriddle';
+
+// variables
+$blue: #009bde;
+$orange: #ff9e16;
+$grayBlue: #434a54;
+
 h1{
-  color: white;
+  font-family: sans-serif;
 }
 h2{
-  color: orange;
+  color: black;
 }
-
 body{
-  background: navy;
+  @include container(false);
+}
+header{
+  @include columns(12);
+  background: $grayBlue;
+  margin: 0;
+}
+#topBar{
+  @include container;
+  //@include columns(12);
+  background-color: $orange;
+  color: white;
+
 }

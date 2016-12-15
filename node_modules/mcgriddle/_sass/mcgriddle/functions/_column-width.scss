@@ -1,0 +1,78 @@
+// ==================================================
+// Column Width
+// ==================================================
+@function column-width($_columns: 1, $_percent: true) {
+  $_grid-columns        : $grid-columns;
+
+  $_column-width        : $grid-width;
+  $_column-width-percent: 100%;
+
+  // major or minor
+  @if $_columns == major or $_columns == minor {
+    @if $_columns == major {
+      $_columns: 1 - $grid-minor;
+    }
+    @else {
+      $_columns: $grid-minor;
+    }
+
+    $_columns: $grid-columns * $_columns;
+  }
+  // '#/#'
+  @else if type-of($_columns) == string {
+    $_columns     : str-replace($_columns, " ");
+    $_index       : str-index($_columns, "/");
+    $_index-offset: 1;
+
+    @if $_index == null {
+      $_index       : str-index($_columns, "of");
+      $_index-offset: 2;
+    }
+
+    @if $_index {
+      $_grid-columns: to-number(str-slice($_columns, $_index + $_index-offset, str-length($_columns)));
+      $_columns     : to-number(str-slice($_columns, 1, $_index - 1));
+    }
+  }
+  // # of # or # #
+  @else if type-of($_columns) == list {
+    @if length($_columns) == 3 {
+      $_grid-columns: nth($_columns, 3);
+    }
+    @else {
+      $_grid-columns: nth($_columns, 2);
+    }
+
+    $_columns: nth($_columns, 1);
+  }
+
+  // calculate column width
+  @if $grid-collapse == true {
+    $_column-width: ($grid-width / $_grid-columns) * $_columns;
+
+    @if $_percent == true {
+      $_column-width-percent: $_column-width * 100% / $grid-width;
+    }
+  }
+  @else {
+    // $_column-count        : ceil($_grid-columns / $_columns);
+    $_column-count        : $_grid-columns / $_columns;
+
+    $_gutter-total-width  : $grid-gutter * ($_column-count - 1);
+    $_grid-remainder-width: $grid-width - $_gutter-total-width;
+
+    $_column-width        : $_grid-remainder-width / $_column-count;
+
+    @if $_percent == true {
+      $_column-width-percent: $_column-width * 100% / $grid-width;
+    }
+  }
+
+  // return column width in absolute or percent value
+  @if $_percent == true {
+    @return $_column-width-percent;
+  }
+  @else {
+    @return $_column-width;
+  }
+}

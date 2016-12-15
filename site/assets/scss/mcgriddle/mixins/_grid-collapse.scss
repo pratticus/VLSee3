@@ -1,0 +1,13 @@
+// ==================================================
+// Grid Collapse
+// ==================================================
+@mixin grid-collapse($_collapse: default) {
+  @if $_collapse == default or $_collapse != true {
+    $_collapse: false;
+  }
+  @else if $_collapse == true {
+    $_collapse: true;
+  }
+
+  $grid-collapse: $_collapse !global;
+}

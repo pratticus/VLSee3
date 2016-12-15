@@ -1,0 +1,8 @@
+// ==================================================
+// Shift Width
+// ==================================================
+@function shift-width($_columns: 1, $_percent: true) {
+  $_shift: column-width($_columns, $_percent) + gutter-width($_percent);
+
+  @return $_shift;
+}
