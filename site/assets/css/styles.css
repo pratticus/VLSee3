@@ -53,8 +53,11 @@ body {
 
 header {
   width: 100%;
-  margin-right: 2.92969%;
   background: #434a54;
+  margin: 0; }
+
+nav {
+  width: 100%;
   margin: 0; }
 
 #topBar {
@@ -65,7 +68,57 @@ header {
   margin-left: auto;
   margin-right: auto;
   max-width: 64em;
-  background-color: #ff9e16;
-  color: white; }
+  color: white;
+  height: 2rem;
+  padding-top: 1rem;
+  font-family: "Lato", Helvetica, "Helvetica Neue", Calibri, sans-serif; }
   #topBar:after {
     display: none; }
+
+#topBarLeft {
+  width: 50%; }
+
+#topBarRight {
+  width: 50%;
+  text-align: right; }
+
+#topBarRight p, a {
+  display: inline; }
+
+#topBar a {
+  text-decoration: none;
+  color: white; }
+
+#navBar {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 64em;
+  width: 100%; }
+  #navBar:after {
+    display: none; }
+
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-basis: 75%; }
+
+nav ul a {
+  text-transform: uppercase;
+  font-family: "Lato", Helvetica, "Helvetica Neue", Calibri, sans-serif;
+  color: #009bde;
+  font-weight: 700;
+  font-size: 1.1rem; }
+
+nav a.logo {
+  background: url(/assets/images/logo-vivid.png) no-repeat 0 100%;
+  background-size: contain;
+  width: 36px;
+  height: 40px;
+  overflow: hidden;
+  display: inline-block; }

@@ -2,12 +2,6 @@
 @import 'mixins/reset.scss';
 @import 'mixins/mixins.scss';
 
-
-// variables
-$blue: #009bde;
-$orange: #ff9e16;
-$grayBlue: #434a54;
-
 h1{
   font-family: sans-serif;
 }
@@ -22,10 +16,59 @@ header{
   background: $grayBlue;
   margin: 0;
 }
+nav{
+  @include columns(12);
+  margin: 0;
+}
+
 #topBar{
   @include container;
-  //@include columns(12);
-  background-color: $orange;
   color: white;
+  height: 2rem;
+  padding-top: 1rem;
+  font-family: $sans-serif;
+}
 
+#topBarLeft{
+  @include columns(6);
+}
+
+#topBarRight{
+  @include columns(6, last);
+  text-align: right;
+}
+#topBarRight p, a{
+  display: inline;
+}
+
+#topBar a{
+  text-decoration: none;
+  color: white;
+}
+#navBar{
+  @include container;
+  @include columns(12);
+  //background-color: $blue;
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  flex-basis:75%;
+}
+nav ul a{
+  text-transform: uppercase;
+  font-family: $sans-serif;
+  color: $blue;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+nav a.logo{
+  background:url(/assets/images/logo-vivid.png) no-repeat 0 100%;
+  background-size: contain;
+  width: 36px;
+  height: 40px;
+  overflow: hidden;
+  display: inline-block;
 }
